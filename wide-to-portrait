@@ -1,0 +1,24 @@
+#!/bin/bash
+encoderPrefs11="-c:v h264_videotoolbox -b:v 15000k -c:a copy";
+portrait="_9-16";
+
+
+convert() {
+    filename=$(basename "$1")
+    extension="${filename##*.}"
+    filename="${filename%.*}"
+    "$2"/ffmpeg -y -i "$filename.$extension" -vf "crop=ih/16*9:ih, scale=1080:-1" $encoderPrefs11 "output/$filename$portrait.$extension"
+    # echo "Conversion Complete!"
+}
+
+# get current dir
+currentDir=$(dirname "$0")
+echo $currentDir;
+cd "$currentDir";
+# convert vids
+for f in *.mp4;
+do
+    convert "$f" "$currentDir"
+done
+
+exit;
