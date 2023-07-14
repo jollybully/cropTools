@@ -1,6 +1,6 @@
 # Crop Tools
 
-This toolset provides a simple way to convert wide (landscape) video files into either portrait or square formats.
+This toolset provides a simple way to convert wide (landscape) video mp4 files into either portrait or square formats.
 
 ## How to Use
 
